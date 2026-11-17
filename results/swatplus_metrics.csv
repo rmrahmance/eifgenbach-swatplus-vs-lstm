@@ -1,0 +1,5 @@
+period,model,NSE,KGE,PBIAS,r,p_factor,r_factor
+calibration 2005-2012,SWAT+ default,0.068,0.567,-10.716,0.627,,
+calibration 2005-2012,SWAT+ calibrated,0.513,0.737,-5.456,0.747,0.38,0.45
+validation 2013-2020,SWAT+ default,-0.137,0.477,-18.374,0.554,,
+validation 2013-2020,SWAT+ calibrated,0.374,0.65,-13.426,0.68,0.36,0.51

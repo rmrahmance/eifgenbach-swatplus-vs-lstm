@@ -1,0 +1,5 @@
+period,model,NSE,KGE,PBIAS,r
+Calibration / training 2005-2012,SWAT+,0.513,0.737,-5.456,0.747
+Calibration / training 2005-2012,LSTM,0.792,0.765,-0.406,0.896
+Validation / test 2013-2020,SWAT+,0.374,0.65,-13.426,0.68
+Validation / test 2013-2020,LSTM,0.795,0.864,0.256,0.892
