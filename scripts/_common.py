@@ -31,21 +31,41 @@ VALID = ("2013-01-01", "2020-12-31")         # SWAT+ validation / LSTM test
 
 
 class _Tee:
-    """write everything that is printed both to the screen and to a log file"""
+    """Write everything that is printed both to the screen and to a log file.
+
+    Behaves like a minimal file object, so it can replace ``sys.stdout`` or
+    ``sys.stderr``. Every write is passed on to all wrapped streams.
+    """
     def __init__(self, *streams):
+        """Keep the streams to copy output to (e.g. the console and an open log file)."""
         self.streams = streams
 
     def write(self, s):
+        """Write the text ``s`` to every stream and flush, so the log is never behind the screen."""
         for st in self.streams:
             st.write(s)
             st.flush()
 
     def flush(self):
+        """Flush all wrapped streams."""
         for st in self.streams:
             st.flush()
 
 
 def start_log(name):
+    """Start logging a script run to ``logs/<name>.log``.
+
+    Redirects ``sys.stdout`` and ``sys.stderr`` so that all printed output and
+    error messages appear on the screen and are also saved in the log file.
+    The log file is overwritten on each run. A header with the start time,
+    the Python version and the data and Models folders is printed first.
+
+    Parameters
+    ----------
+    name : str
+        Name of the script, used for the log file name and the header line
+        (for example ``"01_prepare_observed_data"``).
+    """
     f = open(LOGS / f"{name}.log", "w", encoding="utf-8")
     sys.stdout = _Tee(sys.__stdout__, f)
     sys.stderr = _Tee(sys.__stderr__, f)
@@ -55,4 +75,11 @@ def start_log(name):
 
 
 def done(name):
+    """Print the closing line with the finish time, so a complete run is easy to spot in the log.
+
+    Parameters
+    ----------
+    name : str
+        The same name that was given to :func:`start_log`.
+    """
     print(f"=== {name}  finished {datetime.datetime.now():%Y-%m-%d %H:%M:%S}")
