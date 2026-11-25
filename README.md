@@ -3,7 +3,7 @@
 Daily discharge for a small German catchment (23.9 km², Bergisches Land) simulated in two ways and compared on the same periods:
 
 - **SWAT+ 4.0.2**, a process-based, semi-distributed model built from open data and calibrated in plain Python in a SUFI-2 style (Latin hypercube sampling, two iterations, 400 runs).
-- **An LSTM network** (PyTorch) that reads the last 365 days of rainfall and climate and predicts the next day's discharge.
+- **An LSTM network** (PyTorch) that reads the last 365 days of rainfall and climate, including the current day, and predicts that day's discharge.
 
 This is coursework for the module *Water System Analysis* (M.Sc. Integrated Water Resources Management, TH Köln), done in 2026.
 

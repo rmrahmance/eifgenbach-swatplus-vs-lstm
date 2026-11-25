@@ -8,6 +8,6 @@ data/
 data_processed/
 data_raw_satellite/
 SWATplus/
-LSTM/*.pt
+LSTM/
 logs/
 hydromorph_results/

@@ -7,5 +7,6 @@ geopandas>=1.0
 shapely>=2.0
 pyproj>=3.6
 rasterio>=1.4
+requests              # downloads in script 02
 peewee>=3.17          # needed by the SWAT+ Editor code in SWATplus/tools/swatplus_editor_api
 torch>=2.3            # PyTorch, for the LSTM (CPU version is enough)
