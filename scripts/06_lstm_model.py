@@ -35,7 +35,7 @@ DROPOUT = 0.3                          # randomly switch off 30 % of connections
 EPOCHS = 25                            # passes through the training data
 BATCH = 128                            # examples per weight update
 LR = 1e-3                              # learning rate of the Adam optimiser
-SEEDS = [1, 2, 3]                      # 3 networks -> ensemble mean (more robust)
+SEEDS = [1, 2, 3]                      # 3 networks -> ensemble mean (steadier than one run)
 TRAIN = ("2003-01-01", "2010-12-31")   # the network learns here
 VALID = ("2011-01-01", "2012-12-31")   # early stopping: keep the epoch that is best here
 TEST = ("2013-01-01", "2020-12-31")    # never seen during training = independent test
